@@ -1,0 +1,11 @@
+html,body,.wrapper{height:100%}
+.wrapper{position:relative;padding-bottom:60px;box-sizing:border-box}
+.footer{position:absolute;bottom:0;width:100%;height:60px;background-color:#fff;box-shadow:0 0 10px 3px #e2e2e2;overflow:hidden}
+.footer .control-button{display:flex;height:100%}
+.control-button .item{flex:1;text-align:center;color:#eb4985;font-size:12px}
+.control-button .item img{width:22px;height:22px;margin:8px auto 5px;display:block}
+.footer .pop-up{display:none;height:130px;padding:0 15px}
+.pop-up .title{font-size:14px;color:#eb4985;margin:10px 0 15px;text-align:center}
+.pop-up .title .closeBtn{background:url("../images/close.png") no-repeat;background-size:100%;width:26px;height:26px;float:right;margin-top:-5px}
+.pop-up .list{height:80px;line-height:80px}
+.pop-up .list img{width:20%;float:left;padding:5px;box-sizing:border-box}

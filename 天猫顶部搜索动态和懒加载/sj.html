@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <title>手机动画</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="top">
+            <a href="javascript:;" class="QRCode"><img src="images/code.png"></a><a href="javascript:;" class="logo">演示网站</a><a href="javascript:;" class="message"><img src="images/message.png"></a>
+        </div>
+        <div class="search"><input type="text" placeholder="输入信息" /><span class="icon"></span></div>
+    </div>
+    <div class="wrapper">
+        <img src="" data-src="images/1.jpg" alt="">
+        <img src="" data-src="images/2.jpg" alt="">
+        <img src="" data-src="images/3.jpg" alt="">
+        <img src="" data-src="images/4.jpg" alt="">
+        <img src="" data-src="images/5.jpg" alt="">
+        <img src="" data-src="images/6.jpg" alt="">
+        <img src="" data-src="images/7.jpg" alt="">
+        <img src="" data-src="images/8.jpg" alt="">
+        <img src="" data-src="images/9.jpg" alt="">
+        <img src="" data-src="images/10.jpg" alt="">
+    </div>
+        <script src="js/lazyLoad.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script>
+        $(function() {
+            var scrollTop; //滚动条距离顶部高度
+            var hideHeight = 42; // 滚动条最大值（根据实际情况）
+            var staticTop = 4; // logo初始化的top值
+            // 监听滚动事件
+            $(window).scroll(function() {
+                scrollTop = $(window).scrollTop();
+                console.log(scrollTop);
+                if (scrollTop > hideHeight) scrollTop = hideHeight; // 避免快速拖动出现计算问题
+                animate(scrollTop);
+            });
+
+            function animate(topValue) {
+                $('.logo').css({ // logo动画
+                    'top': (staticTop - topValue) + 'px',
+                    'opacity': (1 - topValue / hideHeight) // topValue值0-42，所以opacity取值从1-0
+                });
+                $('.search').css({ // 搜索框动画
+                    'width': (1 - topValue / (2 * hideHeight) * 0.4) * 100 + '%',
+                    'top': -topValue + 'px'
+                });
+                $('.header').css({ // 头部动画
+                    'height': 96 - topValue / hideHeight * 42 + 'px'
+                });
+            }
+        });
+        </script>
+</body>
+
+</html>
